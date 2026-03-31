@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bocca Dungarpur — Italian Coffee & Pizza House</title>
+  <meta name="description" content="Bocca Dungarpur — Authentic Italian Coffee, Pizza & Cuisine. Premium dining experience in Dungarpur, Rajasthan." />
+  <meta name="theme-color" content="#F5F1ED" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F1ED;
+      --warm-white: #FDFAF6;
+      --charcoal: #1C1A18;
+      --espresso: #2C2420;
+      --gold: #C9A96E;
+      --gold-light: #E8D5B0;
+      --terra: #8B4513;
+      --muted: #6B6560;
+      --border: rgba(201,169,110,0.25);
+      --wa-green: #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 72px;
+      background: rgba(245,241,237,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--espresso); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--charcoal); color: var(--gold-light) !important;
+      padding: 9px 22px; border-radius: 2px;
+      font-size: 0.78rem !important; letter-spacing: 0.14em !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--espresso) !important; color: var(--gold) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 100px 40px 60px;
+      background: linear-gradient(160deg, #F0EBE3 0%, #F5F1ED 45%, #EDE8E0 100%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(201,169,110,0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(139,69,19,0.06) 0%, transparent 50%);
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); font-weight: 400; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block;
+      width: 40px; height: 1px; background: var(--gold-light);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 700; line-height: 0.92;
+      color: var(--espresso);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    h1 em {
+      font-style: italic; color: var(--gold);
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-style: italic; color: var(--muted);
+      margin: 18px 0 40px; letter-spacing: 0.02em;
+    }
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--charcoal); color: var(--gold-light);
+      padding: 14px 32px; border-radius: 2px;
+      font-size: 0.82rem; font-weight: 400; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-primary:hover { background: var(--espresso); color: var(--gold); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--charcoal);
+      padding: 13px 32px; border-radius: 2px;
+      border: 1px solid rgba(28,26,24,0.3);
+      font-size: 0.82rem; font-weight: 400; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: var(--muted); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      animation: bounceDown 2s ease-in-out infinite;
+    }
+    .scroll-hint svg { opacity: 0.5; }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; padding: 0 40px;
+      color: var(--gold); font-size: 0.75rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 40px; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); font-weight: 400; margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600; line-height: 1.1;
+      color: var(--espresso); margin-bottom: 18px;
+    }
+    .lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: var(--muted);
+      line-height: 1.7; max-width: 580px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; margin-top: 60px;
+    }
+    .about-text p {
+      font-size: 0.95rem; line-height: 1.85; color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-visual-box {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #E8DDD0 0%, #D4C4B0 100%);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem; color: rgba(201,169,110,0.3);
+      overflow: hidden; position: relative;
+    }
+    .about-visual-box::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, transparent 40%, rgba(201,169,110,0.15));
+    }
+    .about-accent {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 140px; height: 140px;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 16px;
+    }
+    .about-accent strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: var(--gold); display: block;
+    }
+    .about-accent span {
+      font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── MENU ── */
+    #menu { background: var(--espresso); }
+    #menu .section-label { color: var(--gold-light); }
+    #menu h2 { color: var(--warm-white); }
+    #menu .lead { color: rgba(253,250,246,0.6); }
+    .menu-cats {
+      display: flex; gap: 8px; margin: 40px 0 36px; flex-wrap: wrap;
+    }
+    .menu-cat {
+      padding: 8px 22px; border-radius: 40px;
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.2s;
+      border: 1px solid rgba(201,169,110,0.25);
+      color: rgba(253,250,246,0.6);
+      background: transparent;
+    }
+    .menu-cat.active, .menu-cat:hover {
+      background: var(--gold); color: var(--espresso);
+      border-color: var(--gold);
+    }
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: rgba(201,169,110,0.1);
+      border: 1px solid rgba(201,169,110,0.1);
+    }
+    .menu-item {
+      padding: 28px 32px;
+      background: rgba(44,36,32,0.8);
+      transition: background 0.2s;
+    }
+    .menu-item:hover { background: rgba(44,36,32,1); }
+    .menu-item-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .menu-item-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--warm-white); font-weight: 600;
+    }
+    .menu-item-price {
+      font-size: 0.82rem; color: var(--gold);
+      letter-spacing: 0.05em; white-space: nowrap; margin-left: 12px;
+    }
+    .menu-item-desc {
+      font-size: 0.82rem; color: rgba(253,250,246,0.5); line-height: 1.6;
+    }
+    .menu-tag {
+      display: inline-block; margin-top: 10px;
+      padding: 3px 10px; border-radius: 2px;
+      background: rgba(201,169,110,0.12);
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ── HIGHLIGHTS ── */
+    .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+    .highlight-item { text-align: center; padding: 48px 32px; background: var(--warm-white); border: 1px solid var(--border); }
+    .highlight-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+    .highlight-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; color: var(--espresso); margin-bottom: 10px;
+    }
+    .highlight-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── INFO ── */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; }
+    .info-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--espresso);
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-row {
+      display: flex; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid rgba(201,169,110,0.1);
+      font-size: 0.9rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: var(--muted); }
+    .info-row .value { color: var(--charcoal); font-weight: 400; text-align: right; }
+    .map-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 20px; padding: 12px 24px;
+      background: var(--charcoal); color: var(--gold-light);
+      text-decoration: none; font-size: 0.8rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 2px; transition: background 0.2s;
+    }
+    .map-link:hover { background: var(--espresso); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal); color: rgba(253,250,246,0.5);
+      padding: 60px 40px 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--gold); margin-bottom: 8px;
+    }
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1rem; margin-bottom: 32px;
+      color: rgba(253,250,246,0.4);
+    }
+    .footer-bottom {
+      margin-top: 40px; padding-top: 24px;
+      border-top: 1px solid rgba(201,169,110,0.1);
+      font-size: 0.78rem; letter-spacing: 0.05em;
+    }
+
+    /* ── WHATSAPP FAB ── */
+    .wa-fab {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--wa-green); color: #fff;
+      padding: 13px 22px; border-radius: 50px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem; font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .wa-fab:hover {
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+    }
+    .wa-fab svg { flex-shrink: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      section { padding: 64px 20px; }
+      .about-grid, .info-grid { grid-template-columns: 1fr; gap: 40px; }
+      .highlights { grid-template-columns: 1fr; gap: 16px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .about-accent { right: 0; }
+      h1 { font-size: clamp(2.4rem, 12vw, 3.5rem); }
+      .hero { padding: 90px 20px 60px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Bocca<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="https://wa.me/919XXXXXXXXX?text=Hello!%20I%27d%20like%20to%20make%20a%20reservation%20at%20Bocca%20Dungarpur." target="_blank" class="nav-cta">Reserve</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Dungarpur, Rajasthan</div>
+    <h1>Bocca<br><em>Italiana</em></h1>
+    <p class="hero-sub">Authentic Italian Coffee &amp; Pizza House</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/919XXXXXXXXX?text=Hello!%20I%27d%20like%20to%20make%20a%20reservation%20at%20Bocca%20Dungarpur." target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book a Table
+      </a>
+      <a href="https://maps.app.goo.gl/owsqaajNaJH2rwVx7" target="_blank" class="btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Get Directions
+      </a>
+    </div>
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label fade-in">Our Story</p>
+      <h2 class="fade-in">Where Italy meets<br>the heart of Rajasthan</h2>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <p>Bocca brings the soul of Italian dining to Dungarpur — where every espresso is pulled with precision, every pizza stone-baked to perfection, and every dish tells a story of craft and passion.</p>
+          <p>We source the finest ingredients, from hand-selected Italian flour to locally grown herbs, blending tradition with the warmth and flavours of Rajasthan.</p>
+          <p>Whether you're here for a quiet morning cappuccino or a celebratory evening with family, Bocca is your table in Dungarpur.</p>
+        </div>
+        <div class="about-visual fade-in">
+          <div class="about-visual-box">☕</div>
+          <div class="about-accent">
+            <strong>100%</strong>
+            <span>Authentic Italian Recipes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlights" style="margin-top:80px;">
+        <div class="highlight-item fade-in">
+          <span class="highlight-icon">🍕</span>
+          <h3>Stone-Baked Pizzas</h3>
+          <p>Neapolitan-style dough, 72-hour cold fermentation, wood-fired at 450°C for the perfect char and chew.</p>
+        </div>
+        <div class="highlight-item fade-in">
+          <span class="highlight-icon">☕</span>
+          <h3>Specialty Coffee</h3>
+          <p>Single-origin beans, expertly roasted and pulled as espresso, pour-overs, and seasonal specialty drinks.</p>
+        </div>
+        <div class="highlight-item fade-in">
+          <span class="highlight-icon">🍝</span>
+          <h3>Handmade Pasta</h3>
+          <p>Fresh pasta crafted daily in-house — tagliatelle, pappardelle, gnocchi — with classic and seasonal sauces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="section-inner">
+      <p class="section-label fade-in">What We Serve</p>
+      <h2 class="fade-in">The Menu</h2>
+      <p class="lead fade-in">Crafted with seasonal ingredients, rooted in Italian tradition.</p>
+
+      <div class="menu-cats">
+        <button class="menu-cat active" onclick="filterMenu(this,'all')">All</button>
+        <button class="menu-cat" onclick="filterMenu(this,'coffee')">Coffee</button>
+        <button class="menu-cat" onclick="filterMenu(this,'pizza')">Pizza</button>
+        <button class="menu-cat" onclick="filterMenu(this,'pasta')">Pasta</button>
+        <button class="menu-cat" onclick="filterMenu(this,'dessert')">Desserts</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <!-- Coffee -->
+        <div class="menu-item" data-cat="coffee">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Espresso</div>
+            <div class="menu-item-price">₹180</div>
+          </div>
+          <div class="menu-item-desc">Short, intense shot — our signature single-origin blend.</div>
+          <span class="menu-tag">Signature</span>
+        </div>
+        <div class="menu-item" data-cat="coffee">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Cappuccino</div>
+            <div class="menu-item-price">₹240</div>
+          </div>
+          <div class="menu-item-desc">Double espresso, velvety steamed milk, delicate microfoam.</div>
+        </div>
+        <div class="menu-item" data-cat="coffee">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Affogato</div>
+            <div class="menu-item-price">₹280</div>
+          </div>
+          <div class="menu-item-desc">Hot espresso poured over house-made vanilla gelato.</div>
+          <span class="menu-tag">Chef's Pick</span>
+        </div>
+        <div class="menu-item" data-cat="coffee">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Cold Brew</div>
+            <div class="menu-item-price">₹260</div>
+          </div>
+          <div class="menu-item-desc">18-hour slow-steeped, served over ice. Smooth and bold.</div>
+        </div>
+        <!-- Pizza -->
+        <div class="menu-item" data-cat="pizza">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Margherita</div>
+            <div class="menu-item-price">₹520</div>
+          </div>
+          <div class="menu-item-desc">San Marzano tomato, fior di latte, fresh basil, extra virgin olive oil.</div>
+          <span class="menu-tag">Classic</span>
+        </div>
+        <div class="menu-item" data-cat="pizza">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Quattro Formaggi</div>
+            <div class="menu-item-price">₹680</div>
+          </div>
+          <div class="menu-item-desc">Mozzarella, gorgonzola, parmesan, ricotta, black pepper honey.</div>
+          <span class="menu-tag">Chef's Pick</span>
+        </div>
+        <div class="menu-item" data-cat="pizza">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Funghi Tartufo</div>
+            <div class="menu-item-price">₹720</div>
+          </div>
+          <div class="menu-item-desc">Wild mushrooms, truffle cream, mozzarella, fresh thyme.</div>
+          <span class="menu-tag">Signature</span>
+        </div>
+        <div class="menu-item" data-cat="pizza">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Diavola</div>
+            <div class="menu-item-price">₹620</div>
+          </div>
+          <div class="menu-item-desc">Spicy tomato, mozzarella, Calabrian chilli, basil oil.</div>
+        </div>
+        <!-- Pasta -->
+        <div class="menu-item" data-cat="pasta">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Cacio e Pepe</div>
+            <div class="menu-item-price">₹480</div>
+          </div>
+          <div class="menu-item-desc">Tonnarelli pasta, aged Pecorino Romano, freshly cracked black pepper.</div>
+          <span class="menu-tag">Classic</span>
+        </div>
+        <div class="menu-item" data-cat="pasta">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Tagliatelle al Ragù</div>
+            <div class="menu-item-price">₹560</div>
+          </div>
+          <div class="menu-item-desc">Slow-cooked Bolognese, fresh egg tagliatelle, Parmigiano.</div>
+          <span class="menu-tag">Chef's Pick</span>
+        </div>
+        <div class="menu-item" data-cat="pasta">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Gnocchi Pomodoro</div>
+            <div class="menu-item-price">₹500</div>
+          </div>
+          <div class="menu-item-desc">Potato gnocchi, cherry tomato sauce, fresh burrata, basil.</div>
+        </div>
+        <!-- Desserts -->
+        <div class="menu-item" data-cat="dessert">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Tiramisù</div>
+            <div class="menu-item-price">₹320</div>
+          </div>
+          <div class="menu-item-desc">Classic Venetian recipe. Savoiardi, mascarpone, espresso, cocoa.</div>
+          <span class="menu-tag">Signature</span>
+        </div>
+        <div class="menu-item" data-cat="dessert">
+          <div class="menu-item-top">
+            <div class="menu-item-name">Panna Cotta</div>
+            <div class="menu-item-price">₹280</div>
+          </div>
+          <div class="menu-item-desc">Vanilla bean cream, seasonal berry coulis, mint.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="section-inner">
+      <p class="section-label fade-in">Find Us</p>
+      <h2 class="fade-in">Visit Bocca</h2>
+      <div class="info-grid">
+        <div class="info-block fade-in">
+          <h3>Opening Hours</h3>
+          <div class="info-row"><span class="label">Monday – Friday</span><span class="value">8:00 AM – 10:30 PM</span></div>
+          <div class="info-row"><span class="label">Saturday</span><span class="value">8:00 AM – 11:00 PM</span></div>
+          <div class="info-row"><span class="label">Sunday</span><span class="value">9:00 AM – 10:00 PM</span></div>
+          <div class="info-row"><span class="label">Kitchen closes</span><span class="value">30 min before closing</span></div>
+        </div>
+        <div class="info-block fade-in">
+          <h3>Location &amp; Contact</h3>
+          <div class="info-row"><span class="label">City</span><span class="value">Dungarpur, Rajasthan</span></div>
+          <div class="info-row"><span class="label">Phone</span><span class="value">+91 9X-XXXX-XXXX</span></div>
+          <div class="info-row"><span class="label">WhatsApp</span><span class="value">+91 9X-XXXX-XXXX</span></div>
+          <div class="info-row"><span class="label">Reservations</span><span class="value">Walk-in &amp; WhatsApp</span></div>
+          <a href="https://maps.app.goo.gl/owsqaajNaJH2rwVx7" target="_blank" class="map-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Bocca.</div>
+    <div class="footer-tagline">Italian Coffee &amp; Pizza House — Dungarpur</div>
+    <a href="https://wa.me/919XXXXXXXXX?text=Hello!%20I%27d%20like%20to%20make%20a%20reservation%20at%20Bocca%20Dungarpur." target="_blank" class="btn-primary" style="display:inline-flex; margin-bottom: 32px;">
+      Book a Table via WhatsApp
+    </a>
+    <div class="footer-bottom">
+      &copy; 2025 Bocca Dungarpur. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FAB -->
+  <a href="https://wa.me/919XXXXXXXXX?text=Hello!%20I%27d%20like%20to%20make%20a%20reservation%20at%20Bocca%20Dungarpur." target="_blank" class="wa-fab" title="Book a Table via WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Book a Table
+  </a>
+
+  <script>
+    // Menu filter
+    function filterMenu(btn, cat) {
+      document.querySelectorAll('.menu-cat').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
